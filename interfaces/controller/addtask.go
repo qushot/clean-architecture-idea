@@ -5,16 +5,16 @@ import (
 	"github.com/qushot/clean-arcihtecture-idea/domain/task"
 )
 
-type addTask struct {
+type AddTask struct {
 	input addtask.InputPort
 }
 
-func NewAddTask(input addtask.InputPort) *addTask {
-	return &addTask{
+func NewAddTask(input addtask.InputPort) *AddTask {
+	return &AddTask{
 		input: input,
 	}
 }
 
-func (r *addTask) Execute(entity *task.Entity) error {
+func (r *AddTask) Execute(entity *task.Entity) error {
 	return r.input.Handle(entity)
 }

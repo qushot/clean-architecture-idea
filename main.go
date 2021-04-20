@@ -2,19 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/qushot/clean-arcihtecture-idea/application/usecase/addtask"
 	"github.com/qushot/clean-arcihtecture-idea/domain/task"
-	"github.com/qushot/clean-arcihtecture-idea/infrastructure/persistence/dummy"
-	"github.com/qushot/clean-arcihtecture-idea/interfaces/controller"
-	"github.com/qushot/clean-arcihtecture-idea/interfaces/presenter"
 	"log"
 )
 
 func main() {
-	repo := dummy.NewTaskRepository()
-	output := presenter.NewAddTask()
-	input := addtask.NewInteractor(repo, output)
-	ctrl := controller.NewAddTask(input)
+	ctrl := InitializeApp()
 
 	var n, d string
 	fmt.Println("Input to task info")
